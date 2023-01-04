@@ -168,7 +168,7 @@ class Instagram:
         while True:
             try:
                 self.browser.find_element(By.CSS_SELECTOR,'button._afxw').click()
-                time.sleep(1.0)
+                time.sleep(3.0)
 
                 # 이미지 다운로드
                 self.download_image()
