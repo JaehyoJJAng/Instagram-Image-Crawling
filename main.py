@@ -103,15 +103,20 @@ class Instagram:
             sys.exit()
 
         # 로그인 클릭
+        self.browser.find_element(By.CSS_SELECTOR,'button._acan._aiit._acap._aijb._acas._aj1-').click()
+
+        # 만약 로그인 중 에러 메시지 뜨는 경우
         try:
-            self.browser.find_element(By.CSS_SELECTOR,'button._acan._aiit._acap._aijb._acas._aj1-').click()
+            err_ch = self.browser.find_element(By.CSS_SELECTOR,'p#slfErrorAlert')
+            if err_ch :
+                print('아이디나 패스워드에 문제가 있습니다\n')
+                sys.exit()
+        except:
+            # 에러메시지가 뜨지 않고 정상적으로 넘어가는 경우
             print(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')} - 로그인 성공!")
             time.sleep(5.0)
-        except:
-            print('로그인 실패')
-            sys.exit()
         
-        # login info save alert
+        # 로그인 정보 알람창이 뜨는 경우
         try:
             self.browser.find_element(By.CSS_SELECTOR,'button._acan._acao._acas._aj1-').click()
             time.sleep(1)
