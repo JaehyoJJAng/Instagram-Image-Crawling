@@ -180,7 +180,7 @@ class Instagram:
         """ 다음 게시글 넘어가기 """
         try :
             self.browser.find_element(By.CSS_SELECTOR,'div._aaqg._aaqh > button').click()
-            time.sleep(1.0)
+            time.sleep(2.5)
         except:
             print('다음 게시글이 없습니다!')
             return 0
