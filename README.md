@@ -74,7 +74,16 @@ $ python main.py
 파일 저장 성공! - C:\github\Instagram-Image-Crawling\인스타그램_100_s2\285836545_419553633400065_3279344514775639896_n.jpg
 ```
 
+## 저장된 이미지 파일
+
+![image](https://user-images.githubusercontent.com/91415701/210524699-1d45c6ae-1a1d-41da-8c81-4a96c1e68096.png)
+
+
 ***
 
 ## 주의!
 > <strong>해당 프로그램은 특정 사용자의 계정에 올라온 사진들을 크롤링 하는 프로그램입니다. 크롤링 된 사진은 개인 소장하는 것을 강구 드립니다.이를 지키지 않아 생기는 모든 책임은 프로그램 사용자에게 있습니다</strong>
+
+***
+
+## [WayToThem 홈페이지 놀러가기](https://www.waytothem.com/blog)
