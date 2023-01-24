@@ -19,7 +19,7 @@ class ChromeDriver:
         chrome_options = Options()
 
         # headless Chrome 선언
-        chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--headless')
 
         # 브라우저 꺼짐 방지
         chrome_options.add_experimental_option('detach', True)
@@ -103,7 +103,7 @@ class Instagram:
             sys.exit()
 
         # 로그인 클릭
-        self.browser.find_element(By.CSS_SELECTOR,'button._acan._aiit._acap._aijb._acas._aj1-').click()
+        self.browser.find_element(By.CSS_SELECTOR,'button._acan._acap._acas._aj1-').click()
 
         # 만약 로그인 중 에러 메시지 뜨는 경우
         try:
@@ -119,13 +119,13 @@ class Instagram:
         # 로그인 정보 알람창이 뜨는 경우
         try:
             self.browser.find_element(By.CSS_SELECTOR,'button._acan._acao._acas._aj1-').click()
-            time.sleep(1)
+            time.sleep(3)
         except:
-            pass
-
+            pass        
+        
         # 브라우저 로딩대기
         try:
-            WebDriverWait(self.browser, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'article._ab6k._ab6m._aatb._aatc._aate._aatf._aath._aati')))
+            WebDriverWait(self.browser, 15).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'article._ab6k._ab6m._aggc._aatb._aatc._aate._aatf._aati')))
         except:
             print('게시글 목록을 불러올 수 없었습니다!')
             sys.exit()
@@ -167,11 +167,11 @@ class Instagram:
         """ 게시글의 다음(Next) 이미지 클릭 """
         while True:
             try:
-                self.browser.find_element(By.CSS_SELECTOR,'button._afxw').click()
-                time.sleep(3.0)
-
                 # 이미지 다운로드
                 self.download_image()
+
+                self.browser.find_element(By.CSS_SELECTOR,'button._afxw').click()
+                time.sleep(3.0)
             except:
                 print('사진이 더 이상 없습니다!\n')
                 break
