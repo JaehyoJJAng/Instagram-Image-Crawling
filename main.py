@@ -104,18 +104,27 @@ class Instagram:
 
         # 로그인 클릭
         self.browser.find_element(By.CSS_SELECTOR,'button._acan._acap._acas._aj1-').click()
+        
+        # 잠시 대기
+        time.sleep(1.5)
 
         # 만약 로그인 중 에러 메시지 뜨는 경우
+        exit_flag : bool = True
         try:
             err_ch = self.browser.find_element(By.CSS_SELECTOR,'p#slfErrorAlert')
             if err_ch :
                 print('아이디나 패스워드에 문제가 있습니다\n')
-                sys.exit()
+                exit_flag : bool = False
         except:
             # 에러메시지가 뜨지 않고 정상적으로 넘어가는 경우
             print(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')} - 로그인 성공!")
             time.sleep(5.0)
         
+        # 로그인 에러에 대한 처리
+        if exit_flag == False:
+            os.system('cls')
+            sys.exit()
+            
         # 로그인 정보 알람창이 뜨는 경우
         try:
             self.browser.find_element(By.CSS_SELECTOR,'button._acan._acao._acas._aj1-').click()
@@ -171,7 +180,7 @@ class Instagram:
                 self.download_image()
 
                 self.browser.find_element(By.CSS_SELECTOR,'button._afxw').click()
-                time.sleep(3.0)
+                time.sleep(4.0)
             except:
                 print('사진이 더 이상 없습니다!\n')
                 break
